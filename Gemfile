@@ -10,6 +10,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'rails-erd'
 end
 
 # Adding Bootstrap as CSS framework
