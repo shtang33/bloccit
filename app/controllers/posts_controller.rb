@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     # @posts = Post.all
-    @posts = post_policy_scope(Post)
+    @posts = policy_scope(Post)
     authorize @posts
   end
 
