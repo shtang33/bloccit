@@ -26,16 +26,25 @@ require 'faker'
     )
   end
  topics = Topic.all
-
- # Create Posts
+ 
  50.times do
-   Post.create!(
-     user:   users.sample,
-     topic: topics.sample, 
-     title:  Faker::Lorem.sentence,
-     body:   Faker::Lorem.paragraph
+   Summary.create!(
+     name:  Faker::Lorem.sentence,
+     body:  Faker::Lorem.paragraph
    )
  end
+ summaries = Topic.all
+
+# Create Posts
+50.times do
+  Post.create!(
+    user:   users.sample,
+    topic:  topics.sample,
+    # summary: summaries.sample,
+    title:  Faker::Lorem.sentence,
+    body:   Faker::Lorem.paragraph
+  )
+end
  posts = Post.all
  
  # Create Comments
