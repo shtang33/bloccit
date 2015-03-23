@@ -9,7 +9,6 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  topic_id   :integer
-#  summary_id :integer
 #
 
 class Post < ActiveRecord::Base
@@ -17,6 +16,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   has_one :summary
+  accepts_nested_attributes_for :summary, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
   # order all posts by their created_at date, in descending order.
   default_scope { order('created_at DESC') }

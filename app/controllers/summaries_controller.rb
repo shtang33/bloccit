@@ -6,13 +6,13 @@ class SummariesController < ApplicationController
   end
 
   def new
-    @summary = Summary.all
+    @summary = Summary.new
     authorize @summary
   end
 
   def show
     @summary = Summary.find(params[:id])
-    @posts = @summary.post
+    @post = @summary.post
     authorize @summary
   end
 

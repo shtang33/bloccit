@@ -7,6 +7,7 @@
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  post_id    :integer
 #
 
 class Summary < ActiveRecord::Base
