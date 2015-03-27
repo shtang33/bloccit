@@ -39,8 +39,9 @@ class PostsController < ApplicationController
   def update
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
+    @summary = @post.summary
     authorize @post
-    if @post.update_attributes(params.require(:post).permit(:title, :body))
+    if @post.update_attributes(params.require(:post).permit(:title, :body, summary_attributes: [:body, :id]))
       flash[:notice] = "Post was updated."
       redirect_to [@topic, @post]
     else 

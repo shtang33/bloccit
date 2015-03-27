@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   has_one :summary
-  accepts_nested_attributes_for :summary, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :summary, :reject_if => lambda { |a| a[:body].blank? }, :allow_destroy => true
 
   # order all posts by their created_at date, in descending order.
   default_scope { order('created_at DESC') }
