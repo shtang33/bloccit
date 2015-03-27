@@ -40,15 +40,28 @@ require 'faker'
 end
  posts = Post.all
  
-  50.times do
-   Summary.create!(
-     post: posts.sample,
-     name:  Faker::Lorem.sentence,
-     body:  Faker::Lorem.paragraph
+ # Create Summaries
+ #  50.times do
+ #   Summary.create!(
+ #     post: posts.sample,
+ #     body:  Faker::Lorem.paragraph
+ #   )
+ # end
+ # summaries = Summary.all
+ 
+ $i = 1
+ $num = 50
 
-   )
+ until $i > $num do
+  Summary.create!(
+    post: Post.find($i),
+    body:  Faker::Lorem.paragraph
+  )
+    $i += 1;
  end
  summaries = Summary.all
+
+
 
  # Create Comments
  100.times do

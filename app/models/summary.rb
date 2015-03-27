@@ -3,7 +3,6 @@
 # Table name: summaries
 #
 #  id         :integer          not null, primary key
-#  name       :string
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
