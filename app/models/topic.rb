@@ -11,6 +11,9 @@
 #
 
 class Topic < ActiveRecord::Base
+  
+include Shu_paginate
+
   has_many :posts
 
 end
