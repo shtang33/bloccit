@@ -1,5 +1,5 @@
 <%-# Important to pass on local variable, instead of instance variable starts with @-%>
-<%= form_for [topic, post, post.comments.new] do |f| %>
+<%= form_for [post, post.comments.new] do |f| %>
 
   <% if post.comments.new.errors.any? %>
     <div class = "alert alert-danger">
