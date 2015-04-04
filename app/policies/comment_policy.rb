@@ -8,10 +8,6 @@ class CommentPolicy < ApplicationPolicy
     user.present?
   end
 
-  def update?
-    create?
-  end
-
   def new?
     create?
   end
