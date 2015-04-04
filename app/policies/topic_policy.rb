@@ -12,6 +12,11 @@ class TopicPolicy < ApplicationPolicy
     create?
   end
 
+  def destroy?
+    update?
+  end
+
+
 end
 
 
