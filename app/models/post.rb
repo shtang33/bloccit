@@ -21,20 +21,26 @@ class Post < ActiveRecord::Base
 
   # order all posts by their created_at date, in descending order.
   default_scope { order('rank DESC') }
-
   # scope :ordered_by_title, -> {order('title ASC')}
   # scope :ordered_by_reverse_created_at, -> {order('created_at ASC')}
+  
+  validates :title, length: {minimum: 5}, presence: true
+  validates :body, length: {minimum: 20}, presence: true
+  # validates :topic, presence: true
+  # validates :user, presence: true
+
+  after_create :create_vote
 
   def up_votes
     votes.where(value: 1).count
   end
 
   def down_votes
-    votes.where(value: 1).count
+    votes.where(value: -1).count
   end
 
   def points
-    (self.up_votes) + (self.down_votes)
+    (self.up_votes) - (self.down_votes)
   end
 
   def update_rank
@@ -44,10 +50,11 @@ class Post < ActiveRecord::Base
     update_attribute(:rank, new_rank)
   end
 
+  private
 
-  validates :title, length: {minimum: 5}, presence: true
-  validates :body, length: {minimum: 20}, presence: true
-  # validates :topic, presence: true
-  # validates :user, presence: true
+  def create_vote
+    self.votes.create(value: 1)
+    user.votes.create(value: 1)
+  end
 
 end
