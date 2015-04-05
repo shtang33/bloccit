@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   
-
   def index
     @posts = Post.all
     authorize @posts
