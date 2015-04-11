@@ -6,7 +6,7 @@ describe VotesController do
   include Devise::TestHelpers
 
   before do
-    request.env["HTTP_REFERER"] = '/'
+    # request.env["HTTP_REFERER"] = '/'
     # @user = create(:user)
     # @post = create(:post, user: @user)
     # sign_in @user
