@@ -18,6 +18,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # order all posts by their created_at date, in descending order.
   default_scope { order('rank DESC') }
