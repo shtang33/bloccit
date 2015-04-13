@@ -8,8 +8,14 @@ describe User do
 
     before do
       @post = associated_post
-      @user = authenticated_user
-      sign_in @user   
+      @user = authenticated_user 
+      @another_post = another_associated_post 
+    end
+
+
+    it "returns 'nil' if the user has favorited another post" do
+      @user.favorites.where(post: @another_post).create
+      expect(@user.favorites.find_by_post_id(@post.id)).to be_nil
     end
 
     it "returns `nil` if the user has not favorited the post" do
@@ -20,6 +26,8 @@ describe User do
       favorite = @user.favorites.where(post: @post).create
       expect(@user.favorites.find_by_post_id(@post.id)).to eq(favorite) 
   end
+
+
   
   end
 
