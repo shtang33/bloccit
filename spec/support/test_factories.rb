@@ -19,6 +19,7 @@ module TestFactories
     user
   end
 
+
   def another_associated_post(options={})
     post_options = {
       title: 'Post title 2',
