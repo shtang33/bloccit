@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-gem 'puma', group: :production
-gem 'thin', group: :development
+
 
 group :production do
   gem 'pg'
@@ -48,6 +47,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'annotate'
 gem 'newrelic_rpm'
+gem 'puma'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
