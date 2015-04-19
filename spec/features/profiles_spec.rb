@@ -7,7 +7,7 @@ require 'rails_helper'
    before do
      @user = authenticated_user
      @post = associated_post(user: @user)
-     @comment = Comment.new(user: @user, body: "A Comment")
+     @comment = Comment.new(user: @user, post: @post,  body: "A Comment")
      allow(@comment).to receive(:send_favorite_emails)
      @comment.save!
 
