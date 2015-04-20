@@ -7,10 +7,9 @@ require 'rails_helper'
  describe "Visiting profiles" do
  
    before do
-     @user = authenticated_user
-     @post = associated_post(user: @user)
-     @comment = Comment.new(user: @user, post: @post,  body: "A Comment")
-     comment_without_email(@comment)
+     @user = create(:user)
+     @post = create(:post, user: @user)
+     @comment = create(:comment, user: @user, post: @post)
    end
  
    describe "not signed in" do
