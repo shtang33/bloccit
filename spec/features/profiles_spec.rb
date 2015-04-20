@@ -1,6 +1,5 @@
 require 'rails_helper'
  
-  include TestFactories
   include Warden::Test::Helpers
   Warden.test_mode!
 
