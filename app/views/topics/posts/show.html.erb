@@ -10,9 +10,9 @@
     <p><%= markdown_to_html @post.body %></p>
     <p><%= markdown_to_html('***') %></p>
     <h3>Comments</h3>
-      <% @comments.each do |comment| %>
-        <%= render partial: 'comments/comment', locals: {comment: comment}%>
-      <% end %>
+      <div class ='js-comments'>
+        <%= render partial: 'comments/comment', collection: @comments %>
+      </div>
     <p><%= markdown_to_html('---') %></p>
   </div>
   <div class="col-md-4">
@@ -31,9 +31,9 @@
     </div>
     <%= render partial: 'favorites/favorite', locals: {post: @post} %>
   </div>
-  <% if policy(Comment.new).new? %>
     <div class="col-md-8">
-     <%= render template: 'comments/_form', locals: {topic: @post.topic, post: @post} %>
+     <div class="new-comment"> 
+     <%= render 'comments/form' %>
+     </div>
     </div>
-  <% end %>
 </div>
