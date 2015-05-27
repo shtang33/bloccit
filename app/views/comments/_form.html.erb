@@ -17,6 +17,6 @@
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: 'Enter comments'%>
   <% end %>
   <div class = "form-group">
-    <%= f.submit "Save", class: 'btn-btn-success' %>
+    <%= f.submit "Save", class: 'btn-btn-success', onsubmit: "return blocmetrics('comment')" %>
   </div>
 <% end %>
